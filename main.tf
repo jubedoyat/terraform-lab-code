@@ -7,8 +7,6 @@ terraform {
   }
 }
 
-provider "github" {}
-
 variable "github_token" {
   description = "GitHub Personal Access Token"
   type        = string
@@ -23,6 +21,7 @@ resource "github_repository" "repo-terraform" {
   name        = "repo-terraform"
   description = "Repositorio creado para laboratorio de IaC con Terraform."
   visibility  = "public"
+  auto_init   = true
 }
 
 resource "github_branch" "development" {
